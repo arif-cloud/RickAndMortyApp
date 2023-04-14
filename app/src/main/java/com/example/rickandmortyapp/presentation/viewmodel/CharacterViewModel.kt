@@ -34,6 +34,7 @@ class CharacterViewModel @Inject constructor(
         characterUrlList?.map {
             characterList += (it.substring(it.lastIndexOf("/") + 1) + ",")
         }
+        characterList.removeSuffix(",")
         if (characterList.isNotEmpty())
             fetchData(characterList)
         else
