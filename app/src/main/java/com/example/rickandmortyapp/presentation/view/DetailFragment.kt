@@ -32,7 +32,7 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
         var episodes = ""
-        val episodelist = arrayListOf<String>()
+        val episodeList = arrayListOf<String>()
         binding.apply {
             detailTitleTextView.setText(args.currentCharacter.name)
             Glide.with(this@DetailFragment).load(args.currentCharacter.image).into(detailImageView)
@@ -44,9 +44,9 @@ class DetailFragment : Fragment() {
             detailCreatedTextView.setText(args.currentCharacter.created)
             args.currentCharacter.episode.map {
                 val episode = it.substring(it.lastIndexOf("/")+1)
-                episodelist.add(episode)
+                episodeList.add(episode)
             }
-            episodes = episodelist.joinToString(",")
+            episodes = episodeList.joinToString(",")
             detailEpisodeTextView.setText(episodes)
 
             backButton.setOnClickListener {

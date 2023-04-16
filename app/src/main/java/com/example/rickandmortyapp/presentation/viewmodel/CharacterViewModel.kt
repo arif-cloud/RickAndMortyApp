@@ -20,15 +20,6 @@ class CharacterViewModel @Inject constructor(
     private val _state = MutableLiveData<CharacterState>()
     val state : LiveData<CharacterState> get() = _state
 
-    init {
-        getDefaultCharacterData("38,45,71,82,83,92,112,114,116,117,120,127,155,169,175,179,186,201,216,239,271,302,303,338,343,356,394")
-    }
-
-
-    private fun getDefaultCharacterData(characterList : String) {
-        fetchData(characterList)
-    }
-
     fun getCharacterData(characterUrlList : List<String>?) {
         var characterList = ""
         characterUrlList?.map {

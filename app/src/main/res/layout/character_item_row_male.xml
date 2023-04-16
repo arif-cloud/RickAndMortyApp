@@ -35,7 +35,7 @@
             android:padding="4dp"
             android:text="Beth Smith"
             android:textColor="@color/black"
-            android:textSize="30sp" />
+            android:textSize="30sp"/>
     </RelativeLayout>
 
     <ImageView

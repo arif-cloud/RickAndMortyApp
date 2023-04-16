@@ -11,13 +11,15 @@ import com.example.rickandmortyapp.domain.model.Location
 
 class LocationAdapter : PagingDataAdapter<Location,LocationAdapter.LocationViewHolder>(differCallback) {
     var selectedPosition = 0
+    var prevSelectedPosition = -1
     var onItemClickedListener : (item: Location) -> Unit = {}
     inner class LocationViewHolder(val binding : LocationItemRowBinding) :  RecyclerView.ViewHolder(binding.root){
         fun bind(item : Location) {
             binding.locationNameText.setText(item.name)
             binding.root.setOnClickListener {
-                notifyItemChanged(selectedPosition)
+                prevSelectedPosition = selectedPosition
                 selectedPosition = layoutPosition
+                notifyItemChanged(prevSelectedPosition)
                 notifyItemChanged(selectedPosition)
                 onItemClickedListener(item)
             }
@@ -39,6 +41,10 @@ class LocationAdapter : PagingDataAdapter<Location,LocationAdapter.LocationViewH
     }
 
     override fun onBindViewHolder(holder: LocationViewHolder, position: Int) {
+        if (selectedPosition == 0 && prevSelectedPosition == -1) {
+            onItemClickedListener(getItem(selectedPosition)!!)
+            prevSelectedPosition = 0
+        }
         if(position == selectedPosition)
             holder.selectedBg()
         else
