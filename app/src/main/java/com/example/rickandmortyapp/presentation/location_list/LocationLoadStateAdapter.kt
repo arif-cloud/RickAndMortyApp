@@ -16,7 +16,7 @@ class LocationLoadStateAdapter : LoadStateAdapter<LocationLoadStateAdapter.LoadS
     inner class LoadStateViewHolder(val binding : ProgressRowBinding) : RecyclerView.ViewHolder(binding.root){
         fun bind(loadState: LoadState) {
             binding.apply {
-                loadStateProgress.isVisible = loadState !is LoadState.Loading
+                loadStateProgress.isVisible = loadState is LoadState.Loading
             }
         }
     }

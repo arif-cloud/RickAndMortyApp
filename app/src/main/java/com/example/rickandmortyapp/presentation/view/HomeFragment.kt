@@ -5,30 +5,18 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Toast
-import androidx.core.view.get
-import androidx.core.view.isVisible
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.Observer
 import androidx.lifecycle.lifecycleScope
-import androidx.paging.LoadState
-import androidx.paging.map
 import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.rickandmortyapp.presentation.character_list.CharacterAdapter
 import com.example.rickandmortyapp.presentation.location_list.LocationAdapter
 import com.example.rickandmortyapp.databinding.FragmentHomeBinding
-import com.example.rickandmortyapp.domain.model.Location
-import com.example.rickandmortyapp.presentation.character_list.CharacterState
 import com.example.rickandmortyapp.presentation.location_list.LocationLoadStateAdapter
 import com.example.rickandmortyapp.presentation.viewmodel.CharacterViewModel
 import com.example.rickandmortyapp.presentation.viewmodel.LocationViewModel
 import dagger.hilt.android.AndroidEntryPoint
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.flow.collect
-import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
 
 @AndroidEntryPoint
 class HomeFragment : Fragment() {
